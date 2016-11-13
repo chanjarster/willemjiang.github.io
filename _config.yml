@@ -1,0 +1,53 @@
+# Build settings
+permalink   : /blog/:year/:title/
+markdown    : kramdown
+highlighter : pygments
+gems: [jekyll-paginate]
+
+paginate: 5
+paginate_path: "/blog/page/:num/"
+comments: true
+
+source: source
+destination: _site
+sass:
+  sass_dir: _scss
+  style: compressed # expanded
+
+# SEO settings
+title: blog of Willem Jiang
+description: "blog of Willem Jiang"
+keywords: "blog, web"
+url: http://willemjiang.github.io
+baseurl: ""
+
+google_analytics: UA-6539751-2
+repo: http://github.com/WillemJiang/willemjiang.github.io
+disqus_shortname: "willemjiang-github-io"
+disqus_site_shortname: "willemjiang-github-io"
+
+# Author settings
+author:
+  name      : Willem Jiang
+  job       : Coder
+  bio       : ""
+  thumb     : /images/author.jpg
+  email     : willem.jiang@gmail.com
+  url       : http://willemjiang.github.io
+  github    : http://github.com/willemjiang
+  twitter   : http://twitter.com/willemjiang
+  linkedin  : http://linkedin.com/in/jiangning
+  weibo     : http://weibo.com/willemjiang
+
+# navbar pages
+navbar:
+  - slug: about
+    title: About
+  # - slug: resume
+  #   title: Resume
+  # - slug: skills
+  #   title: Skills
+  - slug: blog
+    title: Blog
+
+exclude: ["gulp", "node_modules", "bower", "bower_components", "config.rb", "src", "Gemfile", "Gemfile.lock", ".rvmrc", ".rbenv-version", "package.json", "gulpfile.js", "README.md", "Rakefile", "changelog.md"]
