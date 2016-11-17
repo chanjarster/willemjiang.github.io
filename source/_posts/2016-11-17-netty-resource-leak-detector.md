@@ -45,10 +45,8 @@ assert buf.refCnt() == 0;
 ```java
 ByteBuf buf = ctx.alloc().directBuffer();
 assert buf.refCnt() == 1;
-
 buf.retain();
 assert buf.refCnt() == 2;
-
 boolean destroyed = buf.release();
 assert !destroyed;
 assert buf.refCnt() == 1;
@@ -86,7 +84,8 @@ public void channelRead(ChannelHandlerContext ctx, Object msg) {
 为了方便我们检测内存泄露的问题，Netty提供了一个缺省的内存检测的实现[ResourceLeakDetector](https://netty.io/4.0/api/io/netty/util/ResourceLeakDetector.html) 。[ResourceLeakDetector](https://netty.io/4.0/api/io/netty/util/ResourceLeakDetector.html)会跟踪引用计数对象的使用情况，并将相关的引用计数对象的使用栈存储下来供开发人员除虫之用。由于引用对象追踪会耗费多的资源，因此对系统会有比较大的影响。运行Netty应用的时候，Netty缺省会采用Simple模式，即采用1%抽样来追踪相关资源分配。如果出现内存泄露，会输入相关log信息，并显示最近相关内存使用情况。
 
 ```
-ERROR io.netty.util.ResourceLeakDetector - LEAK: ByteBuf.release() was not called before it's garbage-collected.
+ERROR io.netty.util.ResourceLeakDetector - LEAK:
+ ByteBuf.release() was not called before it's garbage-collected.
 ```
 
  对于常规的Netty应用来说，如果出现了上面的错误日志，Netty会建议打开ADVANCED监测模式，去获取更多和内存泄露相关的信息。 一般来说这样的操作会给系统带来比较大的负担，[有人做过统计ADVANCED模式与SIMPLE方式相比，会把系统变慢10倍。](http://logz.io/blog/netty-bytebuf-memory-leak/)
@@ -99,7 +98,7 @@ System.setProperty("io.netty.leakDetection.acquireAndReleaseOnly", "true");
 ResourceLeakDetector.setLevel(ResourceLeakDetector.Level.PARANOID);
 ```
 
-  
+
 
 #### camel-netty4的内存泄露问题
 
@@ -110,6 +109,3 @@ ResourceLeakDetector.setLevel(ResourceLeakDetector.Level.PARANOID);
 由于Netty的内存检测模块是通过Log的方式输出内存检测信息的，对于我们的单元测试来说不太方便，于是 Vitalii[配置](https://github.com/apache/camel/blob/master/components/camel-netty4/src/test/resources/log4j2.properties#L28-L32)了一个log4j2的[LogCaptureAppender](https://github.com/apache/camel/blob/master/components/camel-netty4/src/test/java/org/apache/camel/component/netty4/LogCaptureAppender.java)，采用直接截取Log事件的方式在[单元测试完毕](https://github.com/apache/camel/blob/master/components/camel-netty4/src/test/java/org/apache/camel/component/netty4/BaseNettyTest.java#L77-L100)的时候检测是否存在内存泄露的问题。 这样就给写我们的单元测试检测Netty内存溢出提供了极大的便利。
 
 借助这样的Netty提供的内存检测工具以及camel-netty4的单元测试工具，我能在比较快的时间内定位到相关的[内存泄露问题](https://github.com/apache/camel/commit/e56cc97612a07cedd5c67ff3c3b1e22bee525dfb)。
-
-
-
