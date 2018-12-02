@@ -5,9 +5,9 @@ date: 2011-12-19 23:36:20
 comments: true
 description: "如何从纷繁复杂的源代码中获取你想要的东西，我们可以从读测试代码入手！"
 keywords: "OpenSource code reading"
-categories: Open Source
+categories: OpenSource
 
-tags: Open Source
+tags: OpenSource
 
 
 

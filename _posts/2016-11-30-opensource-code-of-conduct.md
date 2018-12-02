@@ -5,9 +5,9 @@ date: 2016-11-30 16:52:36
 comments: true
 description: "开源社区的交流是公开的建立在志愿基础上的交流，为了能更好的融入到开源社区，我们需要注意我们的日常行为。"
 keywords: "open source"
-categories: Open Source
+categories: OpenSource
 
-tags: Open Source
+tags: OpenSource
 
 ---
 
@@ -38,5 +38,3 @@ tags: Open Source
 [Apache社区礼仪指南](http://community.apache.org/contributors/etiquette)
 
 [Apache邮件列表礼仪贴士](http://apache.org/dev/contrib-email-tips.html)
-
-

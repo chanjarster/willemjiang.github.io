@@ -5,8 +5,8 @@ date: 2016-11-12 16:32:54
 comments: true
 description: "在Apache社区有一个不成文的规矩:“没有在邮件列表里面发生的事情就没有发生”。今天这篇blog就和大家聊聊为什么会有这样的规矩。"
 keywords: "mailing list"
-categories: Open Source
-tags: Open Source
+categories: OpenSource
+tags: OpenSource
 
 ---
 
@@ -25,8 +25,3 @@ tags: Open Source
 现在国内的开源社区发展地也非常迅猛，大家大多会选择QQ群或者微信群等这样的及时通讯群来进行交流。这样的交流的好处是大家可以随时随地进行沟通，由于大家在这样及时通讯工具里的沟通没有相关的存档检索功能，大家的讨论很难沉淀成为能被后续加入的成员所使用的有效信息。这样表面的繁荣很难有持续发展的动力。
 
 最近在Apache孵化项目社区中就有这样有关项目建立中文QQ群的讨论，有兴趣的同学可以通过[邮件列表存档](https://www.mail-archive.com/general@incubator.apache.org/msg57192.html)获取相关的内容。 当然由于这个主题涉及到多方面的内容，大家讨论的方向会比较多： 有讨论Apache是不是应该鼓励多语言讨论的，有讨论是不是邮件列表讨论是必须的。 就从方便让大家围观，及时全面了解问题的上下文的角度来说，大家应该能够体会到邮件列表的强大威力了。
-
-
-
-
-

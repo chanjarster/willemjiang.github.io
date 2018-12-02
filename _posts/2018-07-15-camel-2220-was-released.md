@@ -1,11 +1,10 @@
 ---
 layout: post
 title: "Apache Camel 2.22.0发布了"
-permalink: camel-2220-was-released
 date: 2018-07-15 17:34:04
 comments: true
 description: "Apache Camel 2.22.0 发布了，有哪些特性值的关注？"
-keywords: "Camel"
+keywords: "camel"
 categories: Camel
 
 tags: Camel
@@ -17,9 +16,9 @@ Apache Camel 大约每个季度会发布一个新版本，Camel  2.22.0 如约�
 
 Apache Camel 正式支持 Spring 5，由于Camel没有使用Spring5的独有特性，因此Apache Camel 2.22.0 依旧可以同Spring 4.x 一起使用，不过在后续的版本中会考虑修改Camel支持Spring的最低版本。
 
-[ToD  EIP](https://github.com/apache/camel/blob/master/camel-core/src/main/docs/eips/toD-eip.adoc) 允许用户通过[表达式](https://github.com/apache/camel/blob/master/camel-core/src/main/docs/eips/expression.html)的方式来动态定义消息的接收节点，由于节点信息是动态创建了， 在Camel 2.22.0 中针对这部分进行了优化，如果消息接收节点是HTTP 节点的话， Camel会自动复用同一主机端口的连接，减少消息路由的系统负担。 
+[ToD  EIP](https://github.com/apache/camel/blob/master/camel-core/src/main/docs/eips/toD-eip.adoc) 允许用户通过[表达式](https://github.com/apache/camel/blob/master/camel-core/src/main/docs/eips/expression.html)的方式来动态定义消息的接收节点，由于节点信息是动态创建了， 在Camel 2.22.0 中针对这部分进行了优化，如果消息接收节点是HTTP 节点的话， Camel会自动复用同一主机端口的连接，减少消息路由的系统负担。
 
-[Rest DSL](http://camel.apache.org/rest-dsl.html)也在Camel 2.22.0里面进行优化。 首先是支持[Rest DSL](http://camel.apache.org/rest-dsl.html)支持对客户端的请求的Content-Type信息以及返回消息的Response-Type信息进行验证，其次是扩展了针对Swagger安全信息定义的支持，最后是 [Rest DSL](http://camel.apache.org/rest-dsl.html)的Producer端也支持通过endpointProperties的方式来进行配置了。 
+[Rest DSL](http://camel.apache.org/rest-dsl.html)也在Camel 2.22.0里面进行优化。 首先是支持[Rest DSL](http://camel.apache.org/rest-dsl.html)支持对客户端的请求的Content-Type信息以及返回消息的Response-Type信息进行验证，其次是扩展了针对Swagger安全信息定义的支持，最后是 [Rest DSL](http://camel.apache.org/rest-dsl.html)的Producer端也支持通过endpointProperties的方式来进行配置了。
 
 针对云化应用场景，Camel 2.22.0 也提供了一个新的[Service Registry](https://github.com/apache/camel/blob/master/camel-core/src/main/java/org/apache/camel/cloud/ServiceRegistry.java)的服务节点接口，支持将Camel的路由信息注册 Consul, etcd, Zookeeper常规的服务注册中心上的功能。 这样大家可以很方便地将定义好的Camel 路由以云化多实例应用的方式对外发布。
 
@@ -45,12 +44,12 @@ Apache Camel 正式支持 Spring 5，由于Camel没有使用Spring5的独有特�
 
 - [camel-testcontainers](https://github.com/apache/camel/blob/master/components/camel-testcontainers/src/main/docs/testcontainers.adoc) - 支持使用[testcontainers](https://www.testcontainers.org) 来通过扩展[ContainerAwareTestSupport](https://github.com/apache/camel/blob/master/components/camel-testcontainers/src/main/java/org/apache/camel/test/testcontainers/ContainerAwareTestSupport.java) 采用docker方式启动相关的服务。
 
-   
+
 
 ## 参考资料
 
 
 
 1. [Apache Camel 2.22.0 Download](http://camel.apache.org/camel-2220-release.html)
-2. [Apache Camel 2.22.0 Release Note](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12342707&projectId=12311211) 
-3. [Claus Blog: Apache Camel 2.22 Released with Spring Boot 2 support](http://www.davsclaus.com/2018/07/apache-camel-222-released-with-spring.html) 
+2. [Apache Camel 2.22.0 Release Note](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12342707&projectId=12311211)
+3. [Claus Blog: Apache Camel 2.22 Released with Spring Boot 2 support](http://www.davsclaus.com/2018/07/apache-camel-222-released-with-spring.html)

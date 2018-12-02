@@ -5,9 +5,9 @@ date: 2008-02-18 10:13:12
 comments: true
 description: "在过去的2007年中，开源软件开发方面上的两件事情使我受益非浅。"
 keywords: "Open Source"
-categories: Open Source
+categories: OpenSource
 
-tags: Open Source
+tags: OpenSource
 
 ---
 最近发生了很多事情，让我不得不思考一下我现在和接下来需要做的事情。
