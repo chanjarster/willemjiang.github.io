@@ -10,7 +10,7 @@ categories: OpenSource
 tags: OpenSource
 ---
 
-近日Apache ServiceComb项目成功从Apache孵化器毕业成为Apache顶级项目。为了让更多的人了解Apache软件基金会， 我整理资料的基础上写了这篇有关Apache软件基金会的文章，希望能帮助大家进一步了解Apache软件基金会，也欢迎大家就此和我交流。
+近日Apache ServiceComb项目成功从Apache孵化器毕业成为Apache顶级项目。为了让更多的人了解Apache软件基金会， 我整理资料的基础上写了这篇有关Apache软件基金会的文章，希望能帮助大家进一步了解Apache软件基金会，也欢迎大家给我发邮件与我交流。
 
 ## Apache软件基金会介绍
 

@@ -194,4 +194,4 @@ Omega会与Alpha进行链接会把这些事件通知给Alpha。 Alpha可以在�
 
 ![]({{ site.url }}{{ site.baseurl }}/assets/images/saga/Saga.038.jpg)
 
-这个最关键了，大家扫码，上面是ServiceComb小助手，可以帮你拉到微信群里，如果大家有兴趣想加入到我们SAGA项目开发可以与ServiceComb小助手联系。
+这个最关键了，大家扫码，上面是ServiceComb小助手，可以帮你拉到微信群里，如果大家有兴趣想加入到我们SAGA项目开发可以与ServiceComb小助手或者给我发邮件联系。
