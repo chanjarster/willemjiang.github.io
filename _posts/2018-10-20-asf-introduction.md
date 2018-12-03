@@ -3,14 +3,14 @@ layout: post
 title: "为公众利益而生"
 date: 2018-10-20 22:27:36
 comments: true
-description: "近日Apache ServiceComb项目成功从Apache孵化器毕业成为Apache顶级项目。为了让更多的人了解Apache软件基金会， 我整理资料的基础上写了这篇有关Apache软件基金会的文章，希望能帮助大家进一步了解Apache软件基金会，也欢迎大家给我发邮件与我交流。"
+description: "近日Apache ServiceComb项目成功从Apache孵化器毕业成为Apache顶级项目。为了让更多的人了解Apache软件基金会，我在相关资料的基础上结合自己的实践写了这篇有关Apache软件基金会的文章，希望能帮助大家进一步了解Apache软件基金会，也欢迎大家给我发邮件与我交流。"
 keywords: "Apache软件基金会"
 categories: OpenSource
 
 tags: OpenSource
 ---
 
-近日Apache ServiceComb项目成功从Apache孵化器毕业成为Apache顶级项目。为了让更多的人了解Apache软件基金会， 我整理资料的基础上写了这篇有关Apache软件基金会的文章，希望能帮助大家进一步了解Apache软件基金会，也欢迎大家给我发邮件与我交流。
+近日Apache ServiceComb项目成功从Apache孵化器毕业成为Apache顶级项目。为了让更多的人了解Apache软件基金会， 我在相关资料的基础上结合自己的实践写了这篇有关Apache软件基金会的文章，希望能帮助大家进一步了解Apache软件基金会，也欢迎大家给我发邮件与我交流。
 
 ## Apache软件基金会介绍
 
