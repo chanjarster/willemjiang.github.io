@@ -21,7 +21,7 @@ tags: Pack
 
 ### 分布式Saga
 
-[ServiceComb Pack](https://github.com/apache/servicecomb-pack)目默认采⽤用的是名为Saga分布式事务协调方案。Sagas这个概念来源于四十多年前的一篇数据库论文，当时一个Saga事务相当于是一个长时间运行的事务。 在分布式事务场景下，我们把一个Saga分布式事务看做是一个由多个本地事务组成的事务，每个本地事务都有一个与之对应的补偿事务。在Saga事务的执行过程中，如果出现某一步执行出现异常的，Saga事务会被终止，同时会调用之前执行成功的事务对应的补偿事务完成相关的恢复操作，这样保证Saga相关的本地事务要么同时成功，要么通过执行补偿恢复成为Saga执行之前的状态。
+[ServiceComb Pack](https://github.com/apache/servicecomb-pack)目默认采⽤用的是名为Saga分布式事务协调方案。Sagas这个概念来源于三十多年前的一篇数据库论文，一个Saga事务是一个有多个短时事务组成的长时的事务。 在分布式事务场景下，我们把一个Saga分布式事务看做是一个由多个本地事务组成的事务，每个本地事务都有一个与之对应的补偿事务。在Saga事务的执行过程中，如果出现某一步执行出现异常的，Saga事务会被终止，同时会调用之前执行成功的事务对应的补偿事务完成相关的恢复操作，这样保证Saga相关的本地事务要么同时成功，要么通过执行补偿恢复成为Saga执行之前的状态。
 
 ![]({{ site.url }}{{ site.baseurl }}/assets/images/dts2/image2-saga-introduction.png)
 
