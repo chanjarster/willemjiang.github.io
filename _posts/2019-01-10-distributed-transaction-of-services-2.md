@@ -44,7 +44,7 @@ Servicecomb Pack 在实现分布式Saga协调协议的过程中需要追踪分�
 ![]({{ site.url }}{{ site.baseurl }}/assets/images/dts2/image2-saga-timeout-2.png)
 
 
-下图展示的就是在本地事务执行超时的情况下，Alpha事件扫描器会识别出Transaction B 执行超时，同时会发生**TxAborted**事件终止整个Saga 事务，调用相关的恢复方法进行恢复。由于Alpha无法确认对应的事务的执行情况，Alpha会采用向Omega发送**TxComensated**的方式恢复事务，即使这时参与的服务事务已经执行成功了，Alpha还是会执行相关的恢复操作。
+下图展示的就是在本地事务执行超时的情况下，Alpha事件扫描器会识别出Transaction B 执行超时，同时会发生**TxAborted**事件终止整个Saga 事务，调用相关的恢复方法进行恢复。由于Alpha无法确认对应的事务的执行情况，Alpha会采用向Omega发送**TxCompensated**的方式恢复事务，即使这时参与的服务事务已经执行成功了，Alpha还是会执行相关的恢复操作。
 
 ![]({{ site.url }}{{ site.baseurl }}/assets/images/dts2/image2-saga-timeout.png)
 
