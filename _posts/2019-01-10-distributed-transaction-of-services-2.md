@@ -9,7 +9,6 @@ categories: ServiceComb Pack
 
 tags: Pack
 ---
-## 基于服务的分布式事务(下）
 
 ### 分布式事务协调场景介绍
 

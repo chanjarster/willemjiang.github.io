@@ -9,7 +9,6 @@ categories: ServiceComb Pack
 
 tags: Pack
 ---
-# 基于服务的分布式事务(上)
 
 ### 传统数据库事务
 
