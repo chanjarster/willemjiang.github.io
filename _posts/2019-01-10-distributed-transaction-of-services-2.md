@@ -24,7 +24,7 @@ tags: Pack
 
 ![]({{ site.url }}{{ site.baseurl }}/assets/images/dts2/image2-saga-introduction.png)
 
-[ServiceComb Pack](https://github.com/apache/servicecomb-pack) 在实现分布式Saga协调协议的过程中需要追踪分布式事务的执行情况。首先介绍一下正常流程下分布式事务执行流程是如何记录下来的 ，下图的红线部分是Omega端与Alpha端交互序列图，蓝色部分原有服务直接的调用。在分布式事务初始阶段由初始服务的Omega将**SagaStarted**事件到Alpha进行进行分布式事务备案。当有新的服务参与到这个分布式事务中，参与服务的Omega会在本地事务执行前发送**TxStarted**到Alpha端； 并在本地事务执行成功之后将**TxEnded**事件发送到Alpha。如果分布式事务正常结束，初始服务Omega会直接发送**SagaEnded**事件到Alpha结束整个分布式事务。
+[ServiceComb Pack](https://github.com/apache/servicecomb-pack) 在实现分布式Saga协调协议的过程中需要追踪分布式事务的执行情况。首先介绍一下正常流程下分布式事务执行流程是如何记录下来的 ，下图的红线部分是Omega端与Alpha端交互序列图，蓝色部分原有服务直接的调用。在分布式事务初始阶段由初始服务的Omega将**SagaStarted**事件发送到Alpha进行进行分布式事务备案。当有新的服务参与到这个分布式事务中，参与服务的Omega会在本地事务执行前发送**TxStarted**到Alpha端； 并在本地事务执行成功之后将**TxEnded**事件发送到Alpha。如果分布式事务正常结束，初始服务Omega会直接发送**SagaEnded**事件到Alpha结束整个分布式事务。
 
 ![]({{ site.url }}{{ site.baseurl }}/assets/images/dts2/image2-saga-sq1.png)
 
@@ -36,7 +36,7 @@ tags: Pack
 
 ![]({{ site.url }}{{ site.baseurl }}/assets/images/dts2/image2-saga-exception2.png)
 
-除了要考虑异常情况，我们还需要考虑事务执行超时的处理的问题（为了简化场景，这里我们不考虑由于网络连接中断导致的事务异常或者结束消息丢包的情况）。目前我们可以在saga事务以及本地事务设置执行超时时间，Alpha上的事件扫描器会定时查找Started事件在设定的超时时间内是否有对应的Aborted或者Ended事件，如果没有，Alpha事件扫描器则会生成对应的Aborted时间触发相关的补偿操作。
+除了要考虑异常情况，我们还需要考虑事务执行超时的处理的问题（为了简化场景，这里我们不考虑由于网络连接中断导致的事务异常或者结束消息丢包的情况）。目前我们可以在saga事务以及本地事务设置执行超时时间，Alpha上的事件扫描器会定时查找Started事件在设定的超时时间内是否有对应的Aborted或者Ended事件，如果没有，Alpha事件扫描器则会生成对应的Aborted事件触发相关的补偿操作。
 
 当整个saga事务执行超时，Alpha事件扫描器会在后台数据库中添加**SagaAborted**事件终止整个Saga事务，并且调用Omega注册的恢复函数进行相关的恢复操作。
 
@@ -108,7 +108,7 @@ void cancel(CarBooking booking) {
 
 ### TCC实现
 
-[ServiceComb Pack](https://github.com/apache/servicecomb-pack) 还提供了一个名为TCC（Try-Cancel/Confirm实现)分布式事务协调实现。TCC借助两阶段提交协议提供了一种比较完美的恢复方式。在TCC方式下，cancel补偿显然是在第二阶段需要执行业务逻辑来取消第一阶段产生的后果。try是在第一阶段执行相关的业务操作，完成相关业务资源的占用，例如预先分配票务资源，或者检查并刷新用户账户信用额度。 在取消阶段释放相关的业务资源，例如释放预先分配的票务资源或者恢复之前占用的用户信用额度。 那我们为什么还要加入确认操作呢？这需要从业务资源的使用生命周期来入手。在try过程中，我们只是占用的业务资源，相关的执行操作只是出于待定状态，只有在确认操作执行完毕之后，业务资源才能真正被确认。
+[ServiceComb Pack](https://github.com/apache/servicecomb-pack) 还提供了一个名为TCC（Try-Cancel/Confirm实现)分布式事务协调实现。TCC借助两阶段提交协议提供了一种比较完美的恢复方式。在TCC方式下，cancel补偿显然是在第二阶段需要执行业务逻辑来取消第一阶段产生的后果。try是在第一阶段执行相关的业务操作，完成相关业务资源的占用，例如预先分配票务资源，或者检查并刷新用户账户信用额度。 在取消阶段释放相关的业务资源，例如释放预先分配的票务资源或者恢复之前占用的用户信用额度。 那我们为什么还要加入确认操作呢？这需要从业务资源的使用生命周期来入手。在try过程中，我们只是占用的业务资源，相关的执行操作只是处于待定状态，只有在确认操作执行完毕之后，业务资源才能真正被确认。
 
 在下图展示了正常的TCC调用流程，就是参与服务A，B分别在尝试方法中完成相关业务资源的预先分配，然后在提交阶段完成业务资源的确认操作。在实现层面和前面提到的Saga实现一样，我们需要协调器在分布式事务执行完成时向各个参与服务发送执行确认消息，由服务实例执行确认操作。
 
@@ -118,7 +118,7 @@ void cancel(CarBooking booking) {
 
 ![]({{ site.url }}{{ site.baseurl }}/assets/images/dts2/image-tcc-cancel.png)
 
-在ServiceComb Pack中，在为了实现上面描述的TCC业务述求，需要初始服务在分布式事务开始时向Alpha协调器发送**TccStarted**事件，Alpha协调器在接收到**TccStarted**事件之后，会创建相关事务追踪资源跟踪这个TCC事务整个生命周期。当在参与服务调用try方法前发送**ParticipationStarted**事件来声明与TCC相关本地事务。Alpha协调器会根据TCC事务当前的状态决定是否允许后续的参与服务参加到TCC事务中。 如果参与的TCC事务没有终止，Alpha协调器会回复确认消息，参与服务会继续执行相关的try方法调用；如果TCC事务已经出错终止了，Alpha协调器会回复终止消息，参与服务所在的Omega将抛出异常，直接终止try方法调用。如果参与服务调用try方法成功，则会向Alpha发送**ParticipationEnded**事件，因为这个事件发送之后Omega端不需要做任何操作，为了提高系统效率，Omega采用异步方式通知Alpha协调器。当初始服务执行完TCCStart所标注的方法之后， 初始服务所在的Omega会向Alpha协调器发送**TccEnded**事件，Alpha协调器在接收到这个事件之后会查询与本次TCC调用相关的**ParticipationStarted**事件识别相关的参与服务实例，然后通过向这些服务实例所对应的Omega发送**Coordinated**事件，由Omega调用相关的确认方法，完成本地事务提交工作。
+在ServiceComb Pack中，在为了实现上面描述的TCC业务述求，需要初始服务在分布式事务开始时向Alpha协调器发送**TccStarted**事件，Alpha协调器在接收到**TccStarted**事件之后，会创建相关事务追踪资源跟踪这个TCC事务整个生命周期。参与服务在调用try方法前会发送**ParticipationStarted**事件来声明与TCC相关本地事务。Alpha协调器会根据TCC事务当前的状态决定是否允许后续的参与服务参加到TCC事务中。 如果参与的TCC事务没有终止，Alpha协调器会回复确认消息，参与服务会继续执行相关的try方法调用；如果TCC事务已经出错终止了，Alpha协调器会回复终止消息，参与服务所在的Omega将抛出异常，直接终止try方法调用。如果参与服务调用try方法成功，则会向Alpha发送**ParticipationEnded**事件，因为这个事件发送之后Omega端不需要做任何操作，为了提高系统效率，Omega采用异步方式通知Alpha协调器。当初始服务执行完TCCStart所标注的方法之后， 初始服务所在的Omega会向Alpha协调器发送**TccEnded**事件，Alpha协调器在接收到这个事件之后会查询与本次TCC调用相关的**ParticipationStarted**事件识别相关的参与服务实例，然后通过向这些服务实例所对应的Omega发送**Coordinated**事件，由Omega调用相关的确认方法，完成本地事务提交工作。
 
 ![]({{ site.url }}{{ site.baseurl }}/assets/images/dts2/image2-Tcc-confirm.png)
 
