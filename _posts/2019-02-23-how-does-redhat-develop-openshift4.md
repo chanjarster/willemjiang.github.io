@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "红帽是如何构建OpenShift4"
+title: "红帽如何构建OpenShift4"
 date: 2019-02-23 14:27:36
 comments: true
-description: "本文介绍红帽是如何进行OpenShift4的"
+description: "本文介绍红帽是如何已上游优先的方式进行OpenShift4产品的"
 keywords: "OpenShift"
 categories: Redhat
 
