@@ -10,7 +10,7 @@ categories: Redhat
 tags: OpenShift
 ---
 
-众所周知，红帽的OpenShift是建立在Kubernetesrnetes 基础之上的， 但是红帽是如何将上游开发的Kubernetesrnetes整合在OpenShift之中的？ 很多人对这个问题都很感兴趣， 最近在伦敦举办的[OpenShift Commons](https://commons.openshift.org/)大会上， 红帽OpenShift产品经理 Mike Barrett向我们介绍OpenShift产品开发的细节。
+众所周知，红帽的OpenShift是建立在Kubernetes 基础之上的， 但是红帽是如何将上游开发的Kubernetes整合在OpenShift之中的？ 很多人对这个问题都很感兴趣， 最近在伦敦举办的[OpenShift Commons](https://commons.openshift.org/)大会上， 红帽OpenShift产品经理 Mike Barrett向我们介绍OpenShift产品开发的细节。
 
 本文对Mike的演讲前半部分进行了节选翻译，试图向大家展示红帽是如何在社区项目基础上构建企业级软件产品的，大家可以通过[此链接](https://www.youtube.com/watch?v=dYcArJHEBZ8)观看完整的演讲内容。
 
