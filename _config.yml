@@ -16,7 +16,7 @@
 title: Willem Jiang‘s Blog
 email: willemjiang AT gmail.com
 description: "WillemJiang's blog" #The Blog website of Willem
-baseurl: "/" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://willemjiang.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: willemjiang
 github_username:  willem
