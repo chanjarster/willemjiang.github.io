@@ -3,7 +3,7 @@ layout: post
 title: "Apache Camel介绍"
 date: 2019-01-12 20:27:36
 comments: true
-description: "本文介绍Apache Camel以及Apache Camel 3.x的最新进展。"
+description: "Apache Camel作为集成项目的利器已经被业界广泛采用，本文将从使用场景以及背后的故事介绍ApacheCamel，最后向大家介绍Apache Camel 3.x的最新进展。"
 keywords: "apache camel"
 categories: apache camel
 

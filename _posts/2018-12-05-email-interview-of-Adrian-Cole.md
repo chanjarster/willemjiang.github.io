@@ -3,7 +3,7 @@ layout: post
 title: "专访Zipkin项目Leader Adrain Cole"
 date: 2018-12-05 20:27:36
 comments: true
-description: "最近有幸通过Email采访了Zipkin项目的主要开发维护人员 Adrian Cole， 和他聊了一下有关 Zipkin项目的背景以及用户是如何使用Zipkin构建分布式追踪系统的，特别值得一提的是Adrian一直在世界各地举办分布式追踪的workshop，通过sites（局点）文档收集到了大量用户在使用Zipkin构建分布式追踪系统一手资料。"
+description: "最近有幸通过Email采访了Zipkin项目的主要开发维护人员 Adrian Cole， 和他聊了一下有关 Zipkin项目的背景以及用户是如何使用Zipkin构建分布式追踪系统。特别值得一提的是Adrian一直在世界各地举办分布式追踪的workshop，通过sites（局点）文档收集到了大量用户在使用Zipkin构建分布式追踪系统一手资料。"
 keywords: "Zipkin"
 categories: Zipkin
 
@@ -11,7 +11,7 @@ tags: Zipkin
 ---
 
 
-最近有幸通过Email采访了Zipkin项目的主要开发维护人员 Adrian Cole， 和他聊了一下有关 Zipkin项目的背景以及用户是如何使用Zipkin构建分布式追踪系统的，特别值得一提的是Adrian一直在世界各地举办分布式追踪的[workshop](https://cwiki.apache.org/confluence/display/ZIPKIN/Workshops)，通过[sites](https://cwiki.apache.org/confluence/display/ZIPKIN/Sites) （局点）文档收集到了大量用户在使用Zipkin构建分布式追踪系统一手资料。
+最近有幸通过Email采访了Zipkin项目的主要开发维护人员 Adrian Cole， 和他聊了一下有关 Zipkin项目的背景以及用户是如何使用Zipkin构建分布式追踪系统。特别值得一提的是Adrian一直在世界各地举办分布式追踪的[workshop](https://cwiki.apache.org/confluence/display/ZIPKIN/Workshops)，通过[sites](https://cwiki.apache.org/confluence/display/ZIPKIN/Sites) （局点）文档收集到了大量用户在使用Zipkin构建分布式追踪系统一手资料。
 
 现在，先简单介绍一下Adrian， Adrian一直在从事云计算相关开源项目的开发， 是开源项目[Apache jclouds](https://jclouds.apache.org/)和[OpenFeign](https://github.com/OpenFeign)的创始人。 最近几年，他专注于分布式跟踪领域，是[OpenZipkin](https://github.com/openzipkin/) 项目的主要开发维护人员。 Adrian目前在Pivotal Spring Cloud OSS团队工作。在加入Pivotal之前，他还在Twitter（Zipkin的诞生地），Square，Netflix工作过。
 
