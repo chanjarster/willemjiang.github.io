@@ -3,7 +3,7 @@ layout: post
 title: "开源软件使用的几个阶段"
 date: 2011-10-21 22:27:36
 comments: true
-description: "开源软件使用的几个阶段"
+description: "在本文中，笔者结合自己的经历，将开源软件使用的分为三个阶段：使用开源软件完成自己的日常工作；修改开源软件满足自己的需求；参与开源软件开发，在分享的知识的同时收获成长和快乐。 "
 keywords: "开源软件"
 categories: OpenSource
 
