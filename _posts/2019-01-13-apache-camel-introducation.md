@@ -18,7 +18,7 @@ tags: camel
 
 ### Apache Camel 是什么？
 
-[Apache Camel](http://camel.apache.org/) 作为集成项目的利器，针对应用集成场景的抽象出了一套消息交互模型，通过组件的方式进行第三方系统的接入，目前Apache Camel已经提供了200多种组件能够接入HTTP，JMS，TCP，WS-*，WebSocket 等多种传输协议。Apache Camel结合[企业应用集成模式（EIP）](http://www.eaipatterns.com/toc.html)的特点提供了消息路由，消息转换等[领域特定语言（DSL）](https://en.wikipedia.org/wiki/Domain-specific_language)，极大降低了集成应用的开发难度。Apache Camel通过URI的方式来定义需要集成的应用节点信息，用户可以按照业务需求使用DSL快速编写消息路由规则，而无需关注集成协议的细节问题。与传统的[企业集成服务总线（ESB）](https://en.wikipedia.org/wiki/Enterprise_service_bus)相比，Apache Camel的核心库非常小巧（是一个只有几M的jar包），可以方便地与其他系统进行集成。
+[Apache Camel](http://camel.apache.org/) 作为集成项目的利器，针对应用集成场景的抽象出了一套消息交互模型，通过组件的方式进行第三方系统的接入，目前Apache Camel已经提供了300多种组件能够接入HTTP，JMS，TCP，WS-*，WebSocket 等多种传输协议。Apache Camel结合[企业应用集成模式（EIP）](http://www.eaipatterns.com/toc.html)的特点提供了消息路由，消息转换等[领域特定语言（DSL）](https://en.wikipedia.org/wiki/Domain-specific_language)，极大降低了集成应用的开发难度。Apache Camel通过URI的方式来定义需要集成的应用节点信息，用户可以按照业务需求使用DSL快速编写消息路由规则，而无需关注集成协议的细节问题。与传统的[企业集成服务总线（ESB）](https://en.wikipedia.org/wiki/Enterprise_service_bus)相比，Apache Camel的核心库非常小巧（是一个只有几M的jar包），可以方便地与其他系统进行集成。
 
 下面这段Apache Camel的用户介绍来自[Claus Ibsen](https://twitter.com/davsclaus)最近写的一篇[非常有意思的Camel介绍文章](https://medium.com/@davsclaus/apache-camel-explained-to-luke-skywalker-d8ed3366e0f3)。
 
