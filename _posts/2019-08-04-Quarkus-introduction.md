@@ -45,7 +45,7 @@ Java技术栈作为企业级开发的利器已经发展了快二十多年，大�
 
 红帽最近开源的Quarkus项目，借助开源社区的力量，通过对业界广泛使用的框架进行了适配工作，并结合云原生应用的特点，提供了一套端到端的Java云原生应用解决方案。
 
-![image-20190804153450144](/Users/njiang/work/willem/willemjiang.github.io/assets/images/quarkus/image-quarks-extensions.png)
+![image-quarkus-extensions]({{ site.url }}{{ site.baseurl }}/assets/images/quarkus/image-quarks-extensions.png)
 
 Quarkus[采用扩展(Extension)](https://quarkus.io/guides/extension-authors-guide)的方式接入第三方的Java库，以最近刚刚release了[0.2.0](https://github.com/apache/camel-quarkus/releases/tag/0.0.2) [camel-quarkus](https://github.com/apache/camel-quarkus/) 为例，针对Apache Camel core 有关加载Camel组件的部分进行[比较大量扩展](https://github.com/apache/camel-quarkus/tree/master/extensions/core/runtime/src/main/java/org/apache/camel/quarkus/core/runtime)，同时Apache Camel 3.0 也针对组件的动态加载进行了优化。
 
