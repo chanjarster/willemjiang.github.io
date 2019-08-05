@@ -55,13 +55,16 @@ Apache Camel 采用的是组件化的设计思想，通过[Camel Component](http
 
 ```xml
 <dependencies>
-   <!-- Camel Spring Boot Starter 包依赖，包含了Spring Boot以及Apache Camel Core的依赖 -->
+   <!-- Camel Spring Boot Starter 包依赖，   
+  包含了Spring Boot以及Apache Camel Core的依赖 -->
    <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-spring-boot-starter</artifactId>
    </dependency>
 
-   <!-- Camel应用涉到其他的Camel组件,大家可以从https://github.com/apache/camel/blob/master/components/readme.adoc 获取有关Camel组件的信息-->
+   <!-- Camel应用涉到其他的Camel组件    
+  大家可以从https://github.com/apache/camel/blob/master/components/readme.adoc 
+  获取有关Camel组件的信息-->
    <dependency>
        <groupId>org.apache.camel</groupId>
        <artifactId>camel-rabbitmq-starter</artifactId>
@@ -133,7 +136,7 @@ public class MyAppConfig {
 
 如果预先对CamelContext做一些设置的话， 可以通过预先创建[CamelContextConfiguration](https://github.com/apache/camel/blob/master/components/camel-spring-boot/src/main/java/org/apache/camel/spring/boot/CamelContextConfiguration.java)的方式来进行配置。这样在Spring应用启动之前，Spring Boot会自动加载这些预先设置好的[CamelContextConfiguration](https://github.com/apache/camel/blob/master/components/camel-spring-boot/src/main/java/org/apache/camel/spring/boot/CamelContextConfiguration.java)实例，回调相关的配置方法。
 
-```
+```java
 @Configuration
 public class MyAppConfig {
 
