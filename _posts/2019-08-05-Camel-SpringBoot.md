@@ -20,9 +20,9 @@ Apache Camel 采用的是组件化的设计思想，通过[Camel Component](http
 
 随着Spring Boot的普及，大家逐步走上了通过标注和在starter依赖中加入很多自动配置模块的方式来配置相关组件的道路， Camel Spring Boot Starter 为Camel提供了一个自动配置组件。 通过自动配置不但将有Spring管理的Camel Routes组装到Camel Context中， 而且可以通过Autowire的方式向业务代码注入其他与Camel 应用运行相关的组件。
 
-#### 如何管理Spring Boot与Apache依赖
+#### 如何管理Spring Boot与Apache Camel依赖
 
-一般来说可以通过maven的依赖管理如下方式管理Spring Boot 以及Camel的依赖。
+一般来说可以通过maven的依赖管理如下方式管理Spring Boot 以及Apache Camel的依赖。
 
 ```xml
 <properties>
