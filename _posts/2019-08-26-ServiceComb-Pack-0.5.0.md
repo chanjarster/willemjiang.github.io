@@ -16,7 +16,7 @@ ServiceComb Pack 0.5.0 已经发布了， 在这个版本中我们有好几个�
 
 ### 为什么要使用状态机管理事务状态
 
-在ServiceComb Pack 中一个分布式事务是由多个相关联的本地事务所组成了， Omega负责追踪本地的事务运行情况，并将事务执行事件发送到Alpha端， Alpha作为事务协调器，会根据接收的事务事件在后台维护一套事务的状态信息，并根据预先定义的规则与Omega之间进行协调。
+在ServiceComb Pack 中一个分布式事务是由多个相关联的本地事务所组成， Omega负责追踪本地的事务运行情况，并将事务执行事件发送到Alpha端， Alpha作为事务协调器，会根据接收的事务事件在后台维护一套事务的状态信息，并根据预先定义的规则与Omega之间进行协调。
 
 在0.5.0之前的版本我们是将事务执行事件都存放在数据库中，由后台的扫描程序来判断事务的执行状态。这样做的好处是数据接收和处理分离，但是坏处是随着业务复杂度的提升，扫描器依赖的SQL就会变得很复杂。 另外使用扫描器我们很难提供集群支持。因此在[张磊](https://github.com/coolbeevip)的主导下，ServiceComb Pack 开始探索使用状态机来管理事务的状态。
 
@@ -64,6 +64,8 @@ ServiceComb Pack Alpha 收到 Omega 发送的事务消息（全局事务启动�
 
    ```java
    private TransactionContext localTxContext;
+   @Autowired
+   OmegaContext omegaContext;
 
    @SagaStart
    public void foo(BarCommand cmd) {
@@ -152,4 +154,4 @@ public void bar() {
 
 ### 小结
 
-在ServiceComb Pack 0.5.0 中为了提升性能以及更好地支持集群模式我们采用有限状态机来追踪分布式事务的执行情况，为了支持异步调用，我们尝试向业务层暴露一些传递事务调用信息的接口。后续我们还将尝试Akka的集群方案， 欢迎大家使用，并加入到我们的[开发队伍](http://servicecomb.apache.org/cn/developers/contributing)中来。
+在ServiceComb Pack 0.5.0 中为了提升性能以及更好地支持集群模式我们采用有限状态机来追踪分布式事务的执行情况，为了支持异步调用，我们尝试向业务层暴露一些传递事务调用信息的接口。后续我们还将在社区中探索Akka的集群方案， 欢迎大家使用，并加入到我们的[开发队伍](http://servicecomb.apache.org/cn/developers/contributing)中来。
