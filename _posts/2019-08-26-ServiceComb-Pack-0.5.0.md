@@ -12,7 +12,7 @@ tags: pack
 
 ## ServiceComb Pack 0.5.0 新功能介绍
 
-ServiceComb Pack 0.5.0 已经发布了， 在这个版本中我们有好几个重大更新，例如使用状态机来管理事务的执行状态， 新的Saga事务管理UI，以及Omega端的异步事务支持。大家可以在此查阅到详细的[版本更新信息](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12321626&version=12345242)。
+[ServiceComb Pack 0.5.0](https://github.com/apache/servicecomb-pack) 已经[发布](http://servicecomb.apache.org/release/pack-downloads/)了， 在这个版本中我们有好几个重大更新，例如使用状态机来管理事务的执行状态， 新的Saga事务管理UI，以及Omega端的异步事务支持。大家可以在此查阅到详细的[版本更新日志](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12321626&version=12345242)。
 
 ### 为什么要使用状态机管理事务状态
 
