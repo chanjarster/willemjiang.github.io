@@ -32,7 +32,7 @@ tags: Pack
 
 ![]({{ site.url }}{{ site.baseurl }}/assets/images/dts2/image2-saga-exception.png)
 
-现在Alpha可以通过查询**TxEnded**事件可以获取到需要进行补偿恢复的服务信息，Alpha会向相关的服务实例Omega发送**TxCompensated**事件，由Omega调用服务实例补偿方法进行相关的恢复操作。为了恢复本地事务执行上下文，ServiceComb Pack会将**TxStarted**传递过来的方法参数列表信息放入**TxCompensated**消息中传递给Omega，除此之外ServiceComb Pack 还会将[OmegaContext]([OmegaContext](https://github.com/apache/servicecomb-packblob/master/omega/omega-context/src/main/java/org/apache/servicecomb/saga/omega/context/OmegaContext.java))的全局事务ID和本地事务ID设置成本地事务执行时的状态。用户可以在应用代码可以通过获取这些ID在分布式缓存或者数据库中检索获取自定义的上下文环境。
+现在Alpha可以通过查询**TxEnded**事件可以获取到需要进行补偿恢复的服务信息，Alpha会向相关的服务实例Omega发送**TxCompensated**事件，由Omega调用服务实例补偿方法进行相关的恢复操作。为了恢复本地事务执行上下文，ServiceComb Pack会将**TxStarted**传递过来的方法参数列表信息放入**TxCompensated**消息中传递给Omega，除此之外ServiceComb Pack 还会将[OmegaContext](https://github.com/apache/servicecomb-packblob/master/omega/omega-context/src/main/java/org/apache/servicecomb/saga/omega/context/OmegaContext.java)的全局事务ID和本地事务ID设置成本地事务执行时的状态。用户可以在应用代码可以通过获取这些ID在分布式缓存或者数据库中检索获取自定义的上下文环境。
 
 ![]({{ site.url }}{{ site.baseurl }}/assets/images/dts2/image2-saga-exception2.png)
 
