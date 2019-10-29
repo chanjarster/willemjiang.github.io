@@ -14,7 +14,7 @@ tags: Camel
 
 #### Camel应用初始化
 
-Apache Camel 采用的是组件化的设计思想，通过[Camel Component](https://camel.apache.org/component.html)对接第三方的应用，Camel核心模块会扫描classpath 加载这些Camel Component。 Camel应用在启动的过程中，需要将应用涉及到的[路由（Route）](https://camel.apache.org/routes.html)，[节点 （Endpoint）](https://camel.apache.org/endpoint.html)，[类型转换器（TypeConverter）](https://camel.apache.org/type-converter.html)以及发送接收模板（[ProducerTemplate](https://camel.apache.org/producertemplate.html)， [ConsumerTemplate](https://camel.apache.org/polling-consumer.html)）加载到 [Camel上下文环境（CamelContext）](https://camel.apache.org/camelcontext.html)进行组装。 
+Apache Camel 采用的是组件化的设计思想，通过[Camel Component](https://camel.apache.org/component.html)对接第三方的应用，Camel核心模块会扫描classpath 加载这些Camel Component。 Camel应用在启动的过程中，需要将应用涉及到的[路由（Route）](https://camel.apache.org/routes.html)，[节点 （Endpoint）](https://camel.apache.org/endpoint.html)，[类型转换器（TypeConverter）](https://camel.apache.org/type-converter.html)以及发送接收模板（[ProducerTemplate](https://camel.apache.org/producertemplate.html)， [ConsumerTemplate](https://camel.apache.org/polling-consumer.html)）加载到 [Camel上下文环境（CamelContext）](https://camel.apache.org/camelcontext.html)进行组装。
 
 在Camel早期时代，Camel直接提供了一套XML的DSL来描述路由规则，以及配置Camel应用相关模块，这样我们只需要在应用程序入口创建Spring 应用，加载相关的XML配置文件就可以了。 Spring创建ApplicationContext时候会加载对应Camel路由规则，并完成有关CamelContext创建和组装工作。
 
@@ -63,7 +63,7 @@ Apache Camel 采用的是组件化的设计思想，通过[Camel Component](http
    </dependency>
 
    <!-- Camel应用涉到其他的Camel组件    
-  大家可以从https://github.com/apache/camel/blob/master/components/readme.adoc 
+  大家可以从https://github.com/apache/camel/blob/master/components/readme.adoc
   获取有关Camel组件的信息-->
    <dependency>
        <groupId>org.apache.camel</groupId>
@@ -109,11 +109,11 @@ public class MyRouterConfiguration {
           .to("file:/invoices");
       }
     };
-  } 
+  }
 }
 ```
 
-这样在Spring Boot 应用启动的时候就自动加载这些定义好的路由规则。 如果想阻塞Spring Boot的主线程的话，你可以通过加入 **spring-boot-atarter-web**依赖，或者在Spring Boot应的配置文件(**application.properties, application.yam**) 中添加 **camel.springboot.main-run-controller=true**。
+这样在Spring Boot 应用启动的时候就自动加载这些定义好的路由规则。 如果想阻塞Spring Boot的主线程的话，你可以通过加入 **spring-boot-starter-web**依赖，或者在Spring Boot应的配置文件(**application.properties, application.yaml**) 中添加 **camel.springboot.main-run-controller=true**。
 
 #### 组装设置CamelContext
 
@@ -225,14 +225,14 @@ public class MyRouteTest extends CamelTestSupport {
 	public void shouldSucceed() throws Exception {
 		assertNotNull(camelContext);
 		assertNotNull(endpoint);
-		
+
 		String expectedValue = "expectedValue";
 		MockEndpoint mock = getMockEndpoint("mock:myEndpoint:put");
 		mock.expectedMessageCount(1);
 		mock.allMessages().body().isEqualTo(expectedValue);
 		mock.allMessages().header(MY_HEADER).isEqualTo("testHeader");
 		endpoint.sendBodyAndHeader("test", MY_HEADER, "testHeader");
-		
+
 		mock.assertIsSatisfied();
 	}
 }
@@ -240,6 +240,6 @@ public class MyRouteTest extends CamelTestSupport {
 
 #### 参考资料
 
-[Camel官方文档](https://camel.apache.org/spring-boot.html) 
+[Camel官方文档](https://camel.apache.org/spring-boot.html)
 
-[Camel Spring Boot 示例代码](https://github.com/apache/camel/tree/master/examples/camel-example-spring-boot) 
+[Camel Spring Boot 示例代码](https://github.com/apache/camel/tree/master/examples/camel-example-spring-boot)
